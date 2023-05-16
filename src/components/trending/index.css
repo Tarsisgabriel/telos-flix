@@ -1,0 +1,15 @@
+.trendigSection .labelSection {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.trendigSection {
+  width: 100%;
+}
+.trendingVideoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}

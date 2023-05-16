@@ -1,25 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import MainVideo from "../../components/mainVideo";
+import Trending from "../../components/trending";
+import EnjoyForFree from "../../components/enjoyForFree";
+import "./index.css";
 
 function Home() {
   return (
     <div
       style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
-      Home
-      <Link
-        style={{
-          textDecoration: "none",
-          color: "white",
-          background: "blue",
-          padding: "10px",
-          borderRadius: "5px",
-          maxWidth: "70px",
-        }}
-        to="/video"
-      >
-        Video
-      </Link>
+      <MainVideo />
+      <div className="sectionsGrid">
+        <Trending />
+        <EnjoyForFree />
+      </div>
     </div>
   );
 }
