@@ -3,7 +3,7 @@ import Image from "./Hero.png";
 
 function MainVideo() {
   return (
-    <div>
+    <div style={{ marginTop: "284px" }}>
       <img src={Image}></img>
     </div>
   );

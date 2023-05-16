@@ -2,12 +2,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  gap: 10px;
 }
 
 .enjoyForFreeSection {
   width: 100%;
 }
-.enjoyForFreeVideoGrid {
+.enjoyForFreeVideosGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
