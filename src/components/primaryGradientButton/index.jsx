@@ -1,9 +1,9 @@
 import React from "react";
 import "./index.css";
 
-function PrimaryGradientButton({ text, icon }) {
+function PrimaryGradientButton({ icon, text, onClick }) {
   return (
-    <button className="primaryGradientButton">
+    <button onClick={onClick} className="primaryGradientButton">
       {icon}
       {text}
     </button>

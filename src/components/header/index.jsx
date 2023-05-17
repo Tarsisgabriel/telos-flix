@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -20,6 +20,8 @@ import logo from "./Brand.png";
 import LoginButton from "../loginButton";
 import CreatAccountButton from "../creatAccountButton";
 import AppBarActions from "../appBarActions";
+import CustomModal from "../customModal";
+import LoginModalContent from "../loginModalContent";
 
 const drawerWidth = 240;
 
@@ -95,6 +97,7 @@ const Drawer = styled(MuiDrawer, {
 
 export default function MiniDrawer() {
   const theme = useTheme();
+  const [open, setOpen] = useState(false);
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -107,7 +110,12 @@ export default function MiniDrawer() {
           }}
         >
           <img src={logo} alt="logo" />
-          <AppBarActions actions={[<CreatAccountButton />, <LoginButton />]} />
+          <AppBarActions
+            actions={[
+              <CreatAccountButton />,
+              <LoginButton onClick={() => setOpen(true)} />,
+            ]}
+          />
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent">
@@ -158,6 +166,11 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
       </Box>
+      <CustomModal
+        open={open}
+        setOpen={setOpen}
+        content={<LoginModalContent />}
+      />
     </Box>
   );
 }
