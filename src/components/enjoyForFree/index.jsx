@@ -1,7 +1,4 @@
-import {
-  CardGiftcardOutlined,
-  SignalCellularAltOutlined,
-} from "@mui/icons-material";
+import { CardGiftcardOutlined } from "@mui/icons-material";
 import React from "react";
 import "./index.css";
 import MiniVideoCard from "../miniVideoCard";

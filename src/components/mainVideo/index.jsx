@@ -4,7 +4,7 @@ import Image from "./Hero.png";
 function MainVideo() {
   return (
     <div style={{ marginTop: "284px" }}>
-      <img src={Image}></img>
+      <img src={Image} alt=""></img>
     </div>
   );
 }
