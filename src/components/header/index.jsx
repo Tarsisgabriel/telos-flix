@@ -18,10 +18,11 @@ import Home from "@mui/icons-material/Home";
 import Search from "@mui/icons-material/Search";
 import logo from "./Brand.png";
 import LoginButton from "../loginButton";
-import CreatAccountButton from "../creatAccountButton";
+import CreateAccountButton from "../createAccountButton";
 import AppBarActions from "../appBarActions";
 import CustomModal from "../customModal";
 import LoginModalContent from "../loginModalContent";
+import CreateAccountModalContent from "../createAccountModalContent";
 
 const drawerWidth = 240;
 
@@ -95,9 +96,10 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer() {
+export default function Header() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const [contentToShow, setContentToShow] = useState(<></>);
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -112,8 +114,24 @@ export default function MiniDrawer() {
           <img src={logo} alt="logo" />
           <AppBarActions
             actions={[
-              <CreatAccountButton />,
-              <LoginButton onClick={() => setOpen(true)} />,
+              <CreateAccountButton
+                onClick={() => {
+                  setContentToShow(<CreateAccountModalContent />);
+                  setOpen(true);
+                }}
+              />,
+              <LoginButton
+                onClick={() => {
+                  setContentToShow(
+                    <LoginModalContent
+                      setCreatAccountContent={() => {
+                        setContentToShow(<CreateAccountModalContent />);
+                      }}
+                    />
+                  );
+                  setOpen(true);
+                }}
+              />,
             ]}
           />
         </Toolbar>
@@ -166,11 +184,7 @@ export default function MiniDrawer() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
       </Box>
-      <CustomModal
-        open={open}
-        setOpen={setOpen}
-        content={<LoginModalContent />}
-      />
+      <CustomModal open={open} setOpen={setOpen} content={contentToShow} />
     </Box>
   );
 }

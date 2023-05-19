@@ -3,12 +3,12 @@ import "./index.css";
 import image from "./image.png";
 import { FormControl, IconButton, InputAdornment } from "@mui/material";
 import { AddBoxOutlined, Email } from "@mui/icons-material";
-import PrimaryGradienteButton from "../primaryGradientButton";
+import PrimaryGradientButton from "../primaryGradientButton";
 import SecondaryGradientButton from "../secondaryGradientButton";
 import CustomOutlinedInput from "../customOutlinedInput";
 import PasswordOutlinedInput from "../passwordOutlinedInput";
 
-function LoginModalContent() {
+function LoginModalContent({ setCreatAccountContent }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -41,9 +41,10 @@ function LoginModalContent() {
             <PasswordOutlinedInput setValue={setPassword} />
           </div>
           <div className="buttonsSection">
-            <PrimaryGradienteButton text="Entrar" />
+            <PrimaryGradientButton text="Entrar" />
             <SecondaryGradientButton
               text="Quero criar uma conta"
+              onClick={setCreatAccountContent}
               icon={<AddBoxOutlined />}
             />
           </div>
